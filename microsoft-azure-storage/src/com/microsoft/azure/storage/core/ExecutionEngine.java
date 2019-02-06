@@ -188,7 +188,7 @@ public final class ExecutionEngine {
                     // throw on non retryable status codes: 501, 505, blob type mismatch
                     if (task.getResult().getStatusCode() == HttpURLConnection.HTTP_NOT_IMPLEMENTED
                             || task.getResult().getStatusCode() == HttpURLConnection.HTTP_VERSION
-                            || translatedException.getErrorCode().equals(StorageErrorCodeStrings.INVALID_BLOB_TYPE)) {
+                            || StorageErrorCodeStrings.INVALID_BLOB_TYPE.equals(translatedException.getErrorCode())) {
                         throw translatedException;
                     }
                 }
